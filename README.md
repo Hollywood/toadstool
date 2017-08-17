@@ -124,7 +124,7 @@ An error will look like the following and give you the response body. A very use
 
 ![](http://i.imgur.com/cVI3a05.png)
 
-I'm going to go ahead and delete that pesky bob-omb repository and I expect to see an issue created in my king-koopa repository after deletion. This issue should be assigned to me as well as have me tagged in the body.
+I'm going to go ahead and delete that pesky bob-omb repository and I expect to see an issue created in my king-koopa repository after deletion. This issue should be assigned to me, as well as have me tagged in the body.
 
 ![](http://i.imgur.com/9v8wYMs.png)
 
