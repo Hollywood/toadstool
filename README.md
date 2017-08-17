@@ -2,7 +2,7 @@
 
 ## Overview
 
-The functionality contained within this project will create an issue and tag all specified collaborators in a pre-defined repository whenever a specified repository is deleted. This was achieved using GitHub Organization Webhooks, a C# WebAPI project with the third party library OctoKit to make API calls, [ngrok](https://ngrok.com/) for local web hosting, and a powershell script to be ran by the appropriate individuals to insert any sensitive API keys. 
+The functionality contained within this project will create an issue and tag all specified collaborators in a pre-defined repository whenever a specified repository is deleted. This was achieved using GitHub Organization Webhooks, a C# WebAPI project with Microsoft's Webhook library to receive the requests, OctoKit to make the API call to insert issues, [ngrok](https://ngrok.com/) for local web hosting, and a powershell script to be ran by the appropriate individuals to insert any sensitive API keys.
 
 ## Installation and Usage
 There are a couple of ways to implement this event listener and each method has its value. But before installing the server, we have to configure our GitHub Organization to contain a Webhook that listens for any repository deletion.
