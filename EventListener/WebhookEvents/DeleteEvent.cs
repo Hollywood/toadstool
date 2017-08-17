@@ -5,11 +5,12 @@ namespace Toadstool.WebhookEvents
 {
     public class DeleteEvent : WebhookEvent, IWebhookEvent
     {
-        public DeleteEvent(string repositoryName, string actionUser, string action)
+        public DeleteEvent(string repositoryName, string actionUser, string action, string taggedUser)
         {
             RepositoryName = repositoryName;
             ActionUser = actionUser;
             Action = action;
+            TaggedUser = taggedUser;
         }
 
         public async Task<Issue> CreateRepositoryIssue()

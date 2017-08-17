@@ -9,11 +9,12 @@ namespace Toadstool.WebhookEvents
         public string RepositoryName;
         public string ActionUser;
         public string Action;
+        public string TaggedUser;
 
         public virtual Task<Issue> CreateIssue()
         {
             var issue = new GitHubUtilities();
-            return issue.CreateIssue(RepositoryName, $"Toadstool reports that {ActionUser} has {Action} {RepositoryName}!", $"{RepositoryName} has been {Action} by {ActionUser}!");
+            return issue.CreateIssue(RepositoryName, $"Toadstool reports that {ActionUser} has {Action} {RepositoryName}!", $"@{TaggedUser}, {RepositoryName} has been {Action} by {ActionUser}!");
         }
     }
 }
