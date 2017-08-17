@@ -1,4 +1,4 @@
-# GitHub Repository Webhook Listener
+# GitHub Organization Webhook Listener
 
 ## Overview
 
@@ -77,6 +77,7 @@ Enter a token description and select the following options:
 Once you create your token make sure to store it securely along with your Organization Webhook token. Once you generate this token, you cannot retrieve the value. You can regenerate it, however you will need to remember to update your code if you do.
 
 ## Webhook Listener Service
+
 Our Web Service was built on Microsoft's ASP.NET Web API platform using Microsoft's Webhook library to handle our Webhook notifications along with GitHub's OctoKit library to parse the payload and post an issue to a specified repository when a delete occurs. Since I was developing locally, and localhost is not public facing, GitHub's notifications would not be able to make it to my service. For this I used [ngrok](https://ngrok.com/). Ngrok allows you to expose your local server to the internet by giving you a publicly available URI.
 
 If you have a public facing web server the use of ngrok is unnecessary, just use the domain that is currently setup on your webserver.
