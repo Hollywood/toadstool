@@ -7,8 +7,8 @@ namespace Toadstool.Utility
 {
     public class GitHubUtilities
     {
-        private GitHubClient client { get; set; }
-
+        private GitHubClient client;
+            
         public GitHubUtilities()
         {
             var tokenAuth = new Credentials(ConfigurationManager.AppSettings["GitHubAccessToken"]);
