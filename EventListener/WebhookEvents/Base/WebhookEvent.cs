@@ -11,10 +11,16 @@ namespace Toadstool.WebhookEvents
         public string Action;
         public string TaggedUser;
 
-        public virtual Task<Issue> CreateIssue()
+        public virtual Task<Issue> CreateRepositoryIssue(string repositoryName, string title, string body )
         {
-            var issue = new GitHubUtilities();
-            return issue.CreateIssue(RepositoryName, $"Toadstool reports that {ActionUser} has {Action} {RepositoryName}!", $"@{TaggedUser}, {RepositoryName} has been {Action} by {ActionUser}!");
+            var utility = new GitHubUtilities();
+            return utility.CreateIssue(repositoryName, title, body);
+        }
+
+        public virtual Task<bool> RemoveOutsideCollaborator(string owner, string repositoryName, string user )
+        {
+            var utility = new GitHubUtilities();
+            return utility.RemoveCollaborator(owner, repositoryName, user);
         }
     }
 }

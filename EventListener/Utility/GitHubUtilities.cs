@@ -1,4 +1,5 @@
 ﻿using Octokit;
+using System;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,6 +43,24 @@ namespace Toadstool.Utility
 
             var issue = await client.Issue.Create(organization, issueRepository, issueDraft);
             return issue;
+
+        }
+
+        public async Task<bool> RemoveCollaborator(string owner, string repositoryName, string user)
+        {
+            var organization = ConfigurationManager.AppSettings["Organization"];
+            var issueRepository = ConfigurationManager.AppSettings["IssueRepository"];
+
+            try
+            {
+                await client.Repository.Collaborator.Delete(owner, repositoryName, user);
+                return true;
+
+            } catch (ApiException ex)
+            {
+                var issue = await CreateIssue("", "Exception Deleting Outside Collaborator", ex.Message);
+                return false;
+            }
         }
 
     }

@@ -10,5 +10,6 @@ namespace Toadstool.WebhookEvents
     public interface IWebhookEvent
     {
         Task<Issue> CreateRepositoryIssue();
+        Task<bool> EditRepository(string owner, string repository, string user);
     }
 }
