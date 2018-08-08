@@ -1,4 +1,4 @@
-# GitHub Organization Webhook Listener  
+# GitHub Organization Webhook Listener
 
 ## Overview
 
