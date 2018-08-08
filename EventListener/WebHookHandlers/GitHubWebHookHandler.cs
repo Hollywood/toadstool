@@ -19,6 +19,7 @@ namespace Toadstool.Handlers
                 var util = new JsonUtilities();
                 var action = util.GetFirstInstance<string>("action", serializedContent);
                 var actionUser = content["sender"]["login"].Value<string>(); //Get the user performing the action
+                var owner = content["repository"]["owner"]["login"].Value<string>();
                 var repositoryName = util.GetFirstInstance<string>("name", serializedContent);
                 var taggedUser = ConfigurationManager.AppSettings["Assignees"];
                 IWebhookEvent webhookEvent = null;
@@ -30,6 +31,10 @@ namespace Toadstool.Handlers
                         break;
                     case "created":
                         webhookEvent = new CreatedEvent(repositoryName, actionUser, action, taggedUser);
+                        break;
+                    case "added":
+                        webhookEvent = new RemovedEvent(repositoryName, actionUser, action, taggedUser);
+                        webhookEvent.EditRepository(repositoryName, owner, actionUser);
                         break;
                     default:
                         break;

@@ -15,7 +15,12 @@ namespace Toadstool.WebhookEvents
 
         public async Task<Issue> CreateRepositoryIssue()
         {
-            return await CreateIssue();
+            return await CreateRepositoryIssue(RepositoryName, $"{ActionUser} has {Action} {RepositoryName}!", $"@{TaggedUser}, {RepositoryName} has been {Action} by {ActionUser}!");
+        }
+
+        public Task<bool> EditRepository(string owner, string repository, string user)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
